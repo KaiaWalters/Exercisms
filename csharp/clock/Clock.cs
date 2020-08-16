@@ -6,11 +6,12 @@ public class Clock
     int internalMinutes;
     public Clock(int hours, int minutes)
     {
-        if (minutes > 59) {
-            int round = 100/60;
-            internalHours  += Math.Round(round, 0);
-            internalMinutes += (minutes % 60);
-        }
+        int excessMinutes = minutes % 60; 
+        internalMinutes = excessMinutes; 
+        if(minutes)
+        internalHours = minutes
+
+
          if(hours > 23){
              internalHours = hours % 24; 
          }else {
@@ -62,6 +63,18 @@ public class Clock
         }
 
         return $"{hours}" + ":" + $"{minutes}";
+    }
+
+    public int convertTime(int internalHours, int internalMinutes) {
+        
+        int finalMinutes = internalMinutes % 60;
+        //this is where I am unable to convert the resulting int to a double
+        int testConversion = Convert.ToDouble(internalMinutes/60);
+        //int excessMinutes = Math.Round(internalMinutes/60, 0), needs to be a double to work. 
+        int excessMinutes = Math.Round(testConversion, 0);
+        int excessHours = internalHours % 24; 
+        int finalHours = excessHours + excessMinutes;
+  
     }
 
  
