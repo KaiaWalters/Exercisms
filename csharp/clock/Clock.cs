@@ -2,27 +2,17 @@ using System;
 
 public class Clock
 {
-    int  internalHours;
-    int internalMinutes;
+    double internalHours;
+    double internalMinutes;
     public Clock(int hours, int minutes)
     {
-        int excessMinutes = minutes % 60; 
-        internalMinutes = excessMinutes; 
-        if(minutes)
-        internalHours = minutes
 
-
-         if(hours > 23){
-             internalHours = hours % 24; 
-         }else {
-             internalHours = hours;
-             internalMinutes = minutes;
-         }
+        convertTime(hours, minutes); 
          
 
     }
 
-    public int Hours
+    public double Hours
     {
         get
         {
@@ -30,7 +20,7 @@ public class Clock
         }
     }
 
-    public int Minutes
+    public double Minutes
     {
         get
         {
@@ -65,15 +55,20 @@ public class Clock
         return $"{hours}" + ":" + $"{minutes}";
     }
 
-    public int convertTime(int internalHours, int internalMinutes) {
+    public void convertTime(int hours, int minutes) {
         
-        int finalMinutes = internalMinutes % 60;
+        int finalMinutes = minutes % 60;
         //this is where I am unable to convert the resulting int to a double
-        int testConversion = Convert.ToDouble(internalMinutes/60);
+        double testConversion = Convert.ToDouble(minutes/60);
         //int excessMinutes = Math.Round(internalMinutes/60, 0), needs to be a double to work. 
-        int excessMinutes = Math.Round(testConversion, 0);
-        int excessHours = internalHours % 24; 
-        int finalHours = excessHours + excessMinutes;
+        double excessMinutes = Math.Round(testConversion, 0);
+        int excessHours = hours % 24; 
+        double finalHours = excessHours + excessMinutes;
+
+        internalHours = finalHours; 
+        internalMinutes = finalMinutes; 
+
+
   
     }
 
