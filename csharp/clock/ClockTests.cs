@@ -46,56 +46,56 @@ public class ClockTests
         Assert.Equal("02:00", sut.ToString());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Minutes_roll_over()
     {
         var sut = new Clock(0, 160);
         Assert.Equal("02:40", sut.ToString());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Minutes_roll_over_continuously()
     {
         var sut = new Clock(0, 1723);
         Assert.Equal("04:43", sut.ToString());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Hour_and_minutes_roll_over()
     {
         var sut = new Clock(25, 160);
         Assert.Equal("03:40", sut.ToString());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Hour_and_minutes_roll_over_continuously()
     {
         var sut = new Clock(201, 3001);
         Assert.Equal("11:01", sut.ToString());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Hour_and_minutes_roll_over_to_exactly_midnight()
     {
         var sut = new Clock(72, 8640);
         Assert.Equal("00:00", sut.ToString());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Negative_hour()
     {
         var sut = new Clock(-1, 15);
         Assert.Equal("23:15", sut.ToString());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Negative_hour_rolls_over()
     {
         var sut = new Clock(-25, 0);
         Assert.Equal("23:00", sut.ToString());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Negative_hour_rolls_over_continuously()
     {
         var sut = new Clock(-91, 0);

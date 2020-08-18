@@ -56,16 +56,19 @@ public class Clock
     }
 
     public void convertTime(int hours, int minutes) {
-        
+        if(hours < 0) {
+         hours = hours % 24;
+         hours = 23; 
+        }
         int finalMinutes = minutes % 60;
-        //this is where I am unable to convert the resulting int to a double
+     
         double testConversion = Convert.ToDouble(minutes/60);
-        //int excessMinutes = Math.Round(internalMinutes/60, 0), needs to be a double to work. 
+       
         double excessMinutes = Math.Round(testConversion, 0);
-        int excessHours = hours % 24; 
-        double finalHours = excessHours + excessMinutes;
+        double excessHours = hours + excessMinutes;
+        double finalHours = excessHours % 24;
 
-        internalHours = finalHours; 
+        internalHours = finalHours;
         internalMinutes = finalMinutes; 
 
 
